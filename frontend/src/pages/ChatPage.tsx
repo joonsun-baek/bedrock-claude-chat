@@ -231,64 +231,12 @@ const ChatPage: React.FC = () => {
       <div className="relative h-14 w-full">
         <div className="flex w-full justify-between">
           <div className="p-2">
-            <div className="mr-10 font-bold">{pageTitle}</div>
             <div className="text-xs font-thin text-dark-gray">
-              {description}
+              model: {getPostedModel()}
             </div>
           </div>
-
-          {isAvailabilityBot && (
-            <div className="absolute -top-1 right-0 flex h-full items-center">
-              <div className="h-full w-5 bg-gradient-to-r from-transparent to-aws-paper"></div>
-              <div className="flex items-center bg-aws-paper">
-                {bot?.owned && (
-                  <StatusSyncBot
-                    syncStatus={bot.syncStatus}
-                    onClickError={onClickSyncError}
-                  />
-                )}
-                <ButtonIcon onClick={onClickStar}>
-                  {bot?.isPinned ? (
-                    <PiStarFill className="text-aws-aqua" />
-                  ) : (
-                    <PiStar />
-                  )}
-                </ButtonIcon>
-                <ButtonPopover className="mx-1" target="bottom-right">
-                  {bot?.owned && (
-                    <PopoverItem
-                      onClick={() => {
-                        if (bot) {
-                          onClickBotEdit(bot.id);
-                        }
-                      }}>
-                      <PiPencilLine />
-                      {t('bot.titleSubmenu.edit')}
-                    </PopoverItem>
-                  )}
-                  {bot?.isPublic && (
-                    <PopoverItem
-                      onClick={() => {
-                        if (bot) {
-                          onClickCopyUrl(bot.id);
-                        }
-                      }}>
-                      <PiLink />
-                      {copyLabel}
-                    </PopoverItem>
-                  )}
-                </ButtonPopover>
-              </div>
-            </div>
-          )}
         </div>
-        {getPostedModel() && (
-          <div className="absolute right-2 top-10 text-xs text-dark-gray">
-            model: {getPostedModel()}
-          </div>
-        )}
       </div>
-      <hr className="w-full border-t border-gray" />
       <div className="pb-52 lg:pb-40">
         {messages.length === 0 ? (
           <div className="relative flex w-full justify-center">

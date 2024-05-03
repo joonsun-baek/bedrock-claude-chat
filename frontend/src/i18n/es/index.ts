@@ -6,7 +6,7 @@ const translation = {
       },
     },
     app: {
-      name: 'Bedrock Claude Chat',
+      name: 'Joonsun Private Assistant',
       inputMessage: 'Enviar un mensaje',
       starredBots: 'Bots Favoritos',
       recentlyUsedBots: 'Bots Usados Recientemente',

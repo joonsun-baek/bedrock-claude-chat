@@ -4,7 +4,7 @@
   const translation = {
     translation: {
       app: {
-        name: 'Bedrock Claude Chat',
+        name: 'Joonsun Private Assistant',
         inputMessage: '请输入',
         starredBots: '我的 Bots 收藏',
         recentlyUsedBots: '最近使用过的 Bots',

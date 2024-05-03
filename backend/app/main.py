@@ -40,10 +40,10 @@ if not is_published_api:
         {"name": "api_publication", "description": "API Publication API"},
         {"name": "admin", "description": "Admin API"},
     ]
-    title = "Bedrock Claude Chat"
+    title = "Joonsun Private Assistant"
 else:
     openapi_tags = [{"name": "published_api", "description": "Published API"}]
-    title = "Bedrock Claude Chat Published API"
+    title = "Joonsun Private Assistant"
 
 
 app = FastAPI(
@@ -122,8 +122,9 @@ async def add_log_requests(request: Request, call_next: ASGIApp):
     logger.info(f"Request headers: {request.headers}")
 
     body = await request.body()
-    logger.info(f"Request body: {body.decode('utf-8')[:100]}...")
+    logger.info(f"Request body: {body.decode('utf-8')}")
 
     response = await call_next(request)  # type: ignore
+    logger.info(f"response: {response}")
 
     return response

@@ -1,7 +1,7 @@
 const translation = {
   translation: {
     app: {
-      name: 'Bedrock Claude Chat',
+      name: 'Joonsun Private Assistant',
       inputMessage: 'Envoyer un message',
       starredBots: 'Epingler un bot',
       recentlyUsedBots: 'Bot utilisé récemment',

@@ -38,9 +38,13 @@ def health():
 @router.post("/conversation", response_model=ChatOutput)
 def post_message(request: Request, chat_input: ChatInput):
     """Send chat message"""
+    print("############bbbb###########")
+    print(chat_input)
     current_user: User = request.state.current_user
+    print(current_user)
 
     output = chat(user_id=current_user.id, chat_input=chat_input)
+    print(output)
     return output
 
 
@@ -51,6 +55,7 @@ def get_related_documents(request: Request, chat_input: ChatInput):
     """Get related documents
     NOTE: POST method is used to avoid query string length limit
     """
+    print("#############asdfasdf##########")
     current_user: User = request.state.current_user
     output = fetch_related_documents(user_id=current_user.id, chat_input=chat_input)
     return output
@@ -59,6 +64,8 @@ def get_related_documents(request: Request, chat_input: ChatInput):
 @router.get("/conversation/{conversation_id}", response_model=Conversation)
 def get_conversation(request: Request, conversation_id: str):
     """Get a conversation history"""
+    print("#######################")
+    print(chat_input)
     current_user: User = request.state.current_user
 
     output = fetch_conversation(current_user.id, conversation_id)
@@ -68,6 +75,8 @@ def get_conversation(request: Request, conversation_id: str):
 @router.delete("/conversation/{conversation_id}")
 def remove_conversation(request: Request, conversation_id: str):
     """Delete conversation"""
+
+    print("#############0##########")
     current_user: User = request.state.current_user
 
     delete_conversation_by_id(current_user.id, conversation_id)
@@ -78,9 +87,14 @@ def get_all_conversations(
     request: Request,
 ):
     """Get all conversation metadata"""
+
+    print("#############1##########")
     current_user: User = request.state.current_user
+    print("current_user: ", current_user)
 
     conversations = find_conversation_by_user_id(current_user.id)
+    print("conversations: ", conversations)
+
     output = [
         ConversationMetaOutput(
             id=conversation.id,
@@ -91,6 +105,8 @@ def get_all_conversations(
         )
         for conversation in conversations
     ]
+
+    print("OUTPUT: ", output)
     return output
 
 
@@ -99,6 +115,8 @@ def remove_all_conversations(
     request: Request,
 ):
     """Delete all conversations"""
+
+    print("#############2##########")
     delete_conversation_by_user_id(request.state.current_user.id)
 
 
@@ -107,6 +125,7 @@ def patch_conversation_title(
     request: Request, conversation_id: str, new_title_input: NewTitleInput
 ):
     """Update conversation title"""
+    print("#############3##########")
     current_user: User = request.state.current_user
 
     change_conversation_title(
@@ -119,6 +138,7 @@ def patch_conversation_title(
 )
 def get_proposed_title(request: Request, conversation_id: str):
     """Suggest conversation title"""
+    print("#############4##########")
     current_user: User = request.state.current_user
 
     title = propose_conversation_title(current_user.id, conversation_id)
@@ -135,7 +155,9 @@ def put_feedback(
     message_id: str,
     feedback_input: FeedbackInput,
 ):
+
     """Send feedback."""
+    print("#############5##########")
     current_user: User = request.state.current_user
 
     update_feedback(

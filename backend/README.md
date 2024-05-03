@@ -17,20 +17,20 @@ pip install -r ./requirements.txt
 - Configure environment variables
 
 ```sh
-export TABLE_NAME=BedrockChatStack-DatabaseConversationTablexxxx
-export ACCOUNT=yyyy
-export REGION=ap-northeast-1
-export BEDROCK_REGION=us-east-1
-export DOCUMENT_BUCKET=bedrockchatstack-documentbucketxxxxxxx
-export LARGE_MESSAGE_BUCKET=bedrockchatstack-largemessagebucketxxx
-export USER_POOL_ID=xxxxxxxxx
-export CLIENT_ID=xxxxxxxxx
+export TABLE_NAME=AmoreConversationTable
+export ACCOUNT=140751793732
+export REGION=ap-northeast-3
+export BEDROCK_REGION=us-west-2
+export DOCUMENT_BUCKET=amore-documentbucket
+export LARGE_MESSAGE_BUCKET=amore-bedrockchatstack-largemessagebucket
+export USER_POOL_ID=ap-northeast-3_nsXtOcVt5
+export CLIENT_ID=30mi47f1e583i1rlh5dv1rfh13
 ```
 
 ## Launch local server
 
 ```sh
-uvicorn app.main:app  --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app  --reload --host localhost --port 8000
 ```
 
 - To refer the specification, access to [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for [Swagger](https://swagger.io/) and [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc) for [Redoc](https://github.com/Redocly/redoc).

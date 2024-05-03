@@ -14,7 +14,7 @@ export default defineConfig({
       },
       injectRegister: 'auto',
       manifest: {
-        name: 'Bedrock Claude Chat',
+        name: 'Joonsun Private Assistant',
         short_name: 'Bedrock Chat',
         description: 'AWS-native chatbot using Bedrock + Claude',
         start_url: '/index.html',
